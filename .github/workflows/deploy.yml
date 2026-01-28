@@ -1,0 +1,17 @@
+name: Deploy PHP App
+
+on:
+  push:
+    branches:
+      - main  # triggers on push to main branch
+
+jobs:
+  deploy:
+    runs-on: self-hosted  # tells GitHub to use your local runner
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to container
+        run: |
+          "cd /var/www/html && git pull && sudo systemctl reload apache2"
