@@ -1,0 +1,10 @@
+deploy:
+  stage: deploy
+  only:
+    - main
+  script:
+    - ssh root@192.168.1.111 "
+        cd /var/www/html &&
+        git pull &&
+        sudo systemctl reload apache2
+      "
