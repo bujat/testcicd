@@ -1,6 +1,0 @@
-deploy:
-  stage: deploy
-  only:
-    - main
-  script:
-    - cd /var/www/html && git pull

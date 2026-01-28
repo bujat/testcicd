@@ -13,5 +13,4 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Deploy to container
-        run: |
-          "cd /var/www/html && git pull && sudo systemctl reload apache2"
+        run: cd /var/www/html && git pull
